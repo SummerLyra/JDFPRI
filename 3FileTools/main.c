@@ -9,7 +9,7 @@
 int fd;
 int opened = 0;
 char fileName[100];
-char* pargv[4] = { "ls", "-l", NULL, NULL};
+char* pargv[4] = { "ls", "-l", NULL, NULL };
 
 void createFile()
 {
