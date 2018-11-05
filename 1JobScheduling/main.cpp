@@ -22,7 +22,7 @@ struct JCB
 
 bool JCB::operator==(const JCB& j)
 {
-	return (name == j.name);
+	return name == j.name;
 }
 
 int clock1 = 0;

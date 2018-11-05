@@ -18,7 +18,7 @@ struct DiskAccess
 
 bool DiskAccess::operator==(const DiskAccess& dt)
 {
-	return (name == dt.name);
+	return name == dt.name;
 }
 
 int pos = 90;
