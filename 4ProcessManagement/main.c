@@ -2,7 +2,6 @@
 #include<stdlib.h>
 #include<string.h>
 #include<unistd.h>
-#include<errno.h>
 #include<signal.h>
 #include<sys/types.h>
 #include<sys/wait.h>
@@ -46,7 +45,7 @@ int main()
 
 	if (pipe(fd) < 0)
 	{
-		perror("pipe");
+		printf("pipe() error.\n");
 		exit(1);
 	}
 
@@ -95,7 +94,7 @@ int main()
 
 	else
 	{
-		perror("fork");
+		printf("fork() error.\n");
 		exit(1);
 	}
 
