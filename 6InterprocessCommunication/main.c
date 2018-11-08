@@ -6,7 +6,6 @@
 #include<sys/msg.h>
 #include<sys/shm.h>
 #include<sys/types.h>
-#include<sys/wait.h>
 #define SIZE 512
 #define SVKEY 75
 #define REQ 1
