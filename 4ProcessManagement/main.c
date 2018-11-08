@@ -45,7 +45,7 @@ int main()
 
 	if (pipe(fd) < 0)
 	{
-		printf("pipe() error.\n");
+		perror("pipe");
 		exit(1);
 	}
 
@@ -94,7 +94,7 @@ int main()
 
 	else
 	{
-		printf("fork() error.\n");
+		perror("fork");
 		exit(1);
 	}
 
