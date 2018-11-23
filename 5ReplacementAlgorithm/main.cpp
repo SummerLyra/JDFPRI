@@ -8,7 +8,8 @@ using namespace std;
 
 const int insStream = 320;
 const int pageSize = 1024;
-const int available = 29;
+const int minPageNum = 4;
+const int maxPageNum = 32;
 const int maxAddr = 32766;
 const int unused = 65535;
 
@@ -96,7 +97,7 @@ void initial()
 	}
 }
 
-void fifo()
+void fifo(int available)
 {
 	list<int> memory(available, unused);
 	hit = 0;
@@ -117,10 +118,10 @@ void fifo()
 
 	hit /= (double)seq.size();
 	hit *= 100;
-	cout << setw(7) << hit << " % BY FIRST IN FIRST OUT;" << endl;
+	cout << setw(7) << hit << " %    ";
 }
 
-void lru()
+void lru(int available)
 {
 	list<Page> memory(available);
 	hit = 0;
@@ -149,10 +150,10 @@ void lru()
 
 	hit /= (double)seq.size();
 	hit *= 100;
-	cout << setw(7) << hit << " % BY LEAST RECENTLY USED;" << endl;
+	cout << setw(7) << hit << " %    ";
 }
 
-void opt()
+void opt(int available)
 {
 	list<int> memory;
 	hit = 0;
@@ -212,7 +213,7 @@ void opt()
 
 	hit /= (double)seq.size();
 	hit *= 100;
-	cout << setw(7) << hit << " % BY OPTIMAL ALGORITHM." << endl;
+	cout << setw(7) << hit << " %    ";
 }
 
 int main()
@@ -224,11 +225,16 @@ int main()
 	{
 		cout << "--------------------" << endl;
 		cout << "THE HIT RATE IS:" << endl;
+		cout << setw(13) << "FIFO" << setw(13) << "LRU" << setw(13) << "OPT" << "AVAILABLE" << endl;
 
 		initial();
-		fifo();
-		lru();
-		opt();
+		for (int avail = minPageNum; avail <= maxPageNum; avail++)
+		{
+			fifo(avail);
+			lru(avail);
+			opt(avail);
+			cout << avail << endl;
+		}
 
 		cout << "--------------------" << endl;
 		cout << "PRESS 0 TO CALCULATE A NEW SERIES OF RESULTS." << endl;
