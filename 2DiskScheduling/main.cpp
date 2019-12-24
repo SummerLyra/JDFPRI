@@ -126,7 +126,7 @@ void scan()
 int main()
 {
 	ifstream read;
-	read.open("/home/dy/2/data");
+	read.open("data");
 	if (!read)
 	{
 		cout << "DATA FILE DOES NOT EXIST." << endl;
